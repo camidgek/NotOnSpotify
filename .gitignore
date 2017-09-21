@@ -1,3 +1,9 @@
+test/
+albums.txt
+artists.txt
+data.txt
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
