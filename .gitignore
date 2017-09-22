@@ -2,7 +2,7 @@ test/
 albums.txt
 artists.txt
 data.txt
-
+.idea/workspace.xml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
