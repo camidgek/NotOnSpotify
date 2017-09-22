@@ -1,16 +1,11 @@
 import os
 import json
 import SpotifyAPI
-#import PathFinder
 
 
 crawler = SpotifyAPI.SpotifyAPI()
 spotify_token = 'BQC_rPsMv8hAaoNYLu4Bn2s-iza41Ffi4QqTW_7zwVWlHOskYnXjr75JhwwTwxyWukc5eIrEK3f9SdLr0-LBVCeYl6EHAf0nocHFhLbwXHsVep3b48CBg8obuEmKzC0SajVTBwQgAVt57VkO'
 path_artists = 'test'
-
-# Create data.txt of files in $path
-#finder = PathFinder.PathFinder()
-#finder.GetDict(path)
 
 # Read previously created dictionary into $data
 json_data = open('data.txt').read()
