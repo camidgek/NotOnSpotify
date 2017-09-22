@@ -32,3 +32,18 @@ class SpotifyAPI:
         # Send request, get $response, return as dictionary
         response = requests.get(request_url, headers=request_header)
         return response.json()
+
+    def FixDeluxeAlbum(self, p_album, p_spotify_token):
+        base_album = p_album.split(" (", 1)[0]
+        request_query = base_album.replace(" ", "+")
+        request_url = 'https://api.spotify.com/v1/search?q=' + request_query + '&type=album'
+        request_header = {'Accept': 'application/json',
+                          'Authorization': 'Bearer ' + p_spotify_token}
+        # Send request, get $response, and convert from json to dictionary
+        response = requests.get(request_url, headers=request_header)
+        json_album_data = response.json()
+        album_data = json_album_data['albums']['items']
+        for album in album_data:
+            if base_album in album['name'] and 'Deluxe' in album['name']:
+                return album['name']
+        return p_album
