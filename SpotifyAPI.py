@@ -3,6 +3,11 @@ import requests
 
 class SpotifyAPI:
 
+    def __init__(self):
+        _client_id = "07281af1b6fe4be7b310550bf8cea3f9"
+        _client_secret = "5ec685a5ae6040a19582fc3dd357c903"
+
+
     def GetArtistIDFromSearch(self, p_artist, p_spotify_token):
         # Create the API request
         request_query = p_artist.replace(" ", "+")

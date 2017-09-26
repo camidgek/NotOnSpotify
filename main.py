@@ -6,7 +6,7 @@ import Deluxer
 
 crawler = SpotifyAPI.SpotifyAPI()
 deluxer = Deluxer.Deluxer()
-spotify_token = 'BQC_rPsMv8hAaoNYLu4Bn2s-iza41Ffi4QqTW_7zwVWlHOskYnXjr75JhwwTwxyWukc5eIrEK3f9SdLr0-LBVCeYl6EHAf0nocHFhLbwXHsVep3b48CBg8obuEmKzC0SajVTBwQgAVt57VkO'
+spotify_token = 'BQBWPyDIYgMIkBlGqdXm7LK9Lo15JB6AMbnZgTDvKR7dKjBdKF7Tg1hEh8clgpddhldrsR6uBPkkEX-B1nCCRrjVb4yJ0ghz-PHpke-BpkWchknxKX9toFEpQ7m7HOssWfxdgbfWvajQ_nlO'
 path_artists = 'test'
 
 # Read previously created dictionary into $data
@@ -30,27 +30,32 @@ for local_artist in os.listdir(path_artists):
     # Artist exists and we have their $artist_id
 
     # Get all of artist's albums on Spotify
-    albums_data = crawler.GetAlbumsFromArtistID(artist_id, spotify_token)
+    sp_albums_data = crawler.GetAlbumsFromArtistID(artist_id, spotify_token)
     # If the artist has no albums, continue at next artist
-    if len(albums_data) < 1:
+    if len(sp_albums_data) < 1:
         continue
     # Create list of all of artists album names
-    album_names = []
-    for album in albums_data['items']:
-        album_names.append(album['name'])
+    sp_album_names = []
+    for sp_album in sp_albums_data['items']:
+        sp_album_names.append(sp_album['name'])
 
     # Iterate through directory, second level is album folders
     path_albums = path_artists + "\\" + local_artist
     for local_album in os.listdir(path_albums):
         # Check if local album is in Spotify albums list
-        if not any(local_album in s for s in album_names):
-            # If not, check if album name has deluxe
-            if "Deluxe" in local_album:
-                deluxe_album = deluxer.FixDeluxeAlbum(local_album, spotify_token)
-                # If deluxe album was found, rename directory
-                if deluxe_album != local_album:
-                    os.rename(path_albums + "\\" + local_album, path_albums + "\\" + deluxe_album)
-            # If album was not deluxe or didn't find a correct name, add to $albums_not_found list
+        if any(local_album in s for s in sp_album_names):
+            # Local album is on Spotify...
+            # Iterate through directory, third level is either song files or disc folders
+            path_songs = path_albums + "\\" + local_album
+            #for local_song in os.listdir(path_songs):
+            #    if os.path.isdir(local_song):
+            #        # Disc Folder
+            #    else:
+            #        # Check if song is liked on Spotify
+
+            #https: // api.spotify.com / v1 / me / tracks / contains
+
+        else:
             albums_not_found[local_artist] = local_album
     # Now have a list of all local albums not found on Spotify
 

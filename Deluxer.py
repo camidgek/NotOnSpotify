@@ -42,7 +42,7 @@ class Deluxer:
                 return
 
 
-token = "BQAxuZmnG_bUWYiHWVNOUCr-8EXzCCvmkvdWcvAnEtKqBYNHwbwN3uP54AQjGntBJ2RcgF4juzXTOs6pUNsh6ABTX5jvE0rriI7bVkNspKwS_tJR73UDlz4d3K2knDcp2VCBnuHvsQ83RI-7"
+token = "BQBWPyDIYgMIkBlGqdXm7LK9Lo15JB6AMbnZgTDvKR7dKjBdKF7Tg1hEh8clgpddhldrsR6uBPkkEX-B1nCCRrjVb4yJ0ghz-PHpke-BpkWchknxKX9toFEpQ7m7HOssWfxdgbfWvajQ_nlO"
 path = os.path.abspath('test')
 deluxer = Deluxer()
 deluxer.FixLibrary(path, token)
