@@ -1,8 +1,8 @@
 import requests
 import secret
 
-
 class SpotifyAPI:
+    _auth_endpoint = "https://accounts.spotify.com/authorize"
     _token_endpoint = "https://accounts.spotify.com/api/token"
     _api_endpoint = "https://api.spotify.com"
     _search_endpoint = _api_endpoint + "/v1/search"
@@ -20,6 +20,23 @@ class SpotifyAPI:
     #     auth_body = [('grant_type', 'client_credentials')]
     #     response = requests.post(self._token_endpoint, headers=auth_header, data=auth_body)
     #     return response.json()['access_token']
+
+    def RequestAuthorization(self):
+        request_query = "test"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     def GetArtistIDFromSearch(self, p_artist):
         # Create the API request

@@ -2,9 +2,8 @@ import os
 import json
 import SpotifyAPI
 
-
 crawler = SpotifyAPI.SpotifyAPI()
-path_artists = "G:\\iTunes\\Music"
+path_artists = "files"
 
 artist_ids = {}
 artists_not_found = []
