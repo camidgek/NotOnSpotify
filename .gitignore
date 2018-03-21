@@ -1,4 +1,5 @@
-test/
+secret.py
+files/
 albums.txt
 artists.txt
 data.txt
